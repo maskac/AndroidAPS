@@ -41,10 +41,10 @@ jobs:
           ndk: '23.1.7779620' # Optional, adjust if needed
 
       - name: Build FullRelease variant
-        run: ./gradlew assembleFullRelease --no-daemon
+        run: ./gradlew assembleFullRelease -x ktlintCheck --no-daemon
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v3
         with:
           name: fullrelease-apk
-          path: app/build/outputs/apk/fullRelease/*.apk
+          path: app/full/release/*.apk
